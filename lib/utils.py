@@ -137,8 +137,9 @@ def traceback_error():
 
 
 def request(
-        url, data=None, headers={}, method='GET', timeout=30, proxy_uri=None,
+        url, data=None, headers=None, method='GET', timeout=30, proxy_uri=None,
         raw_object=False) -> Response | str:
+    headers = headers or {}
     br = Browser()
     br.set_handle_robots(False)
     # Do not verify SSL certificates
